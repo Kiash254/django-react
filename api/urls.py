@@ -8,4 +8,5 @@ urlpatterns = [
     path('tododetail/<int:pk>/',views.TodoDetail, name='tododetail'),
     path('todocreate/',views.TodoCreate, name='todocreate'),
     path('todoupdate/<int:pk>/',views.TodoUpdate, name='todoupdate'),
+    path('tododelete/<int:pk>/',views.TodoDelete, name='tododelete'),
 ]

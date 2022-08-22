@@ -11,7 +11,6 @@ def Todoview(request):
     return Response(serializer.data)
 
 @api_view(['GET'])
-
 def TodoDetail(request,pk):
     todo = Todo.objects.get(id=pk)
     serializer = TodoSerializer(todo, many=False)
@@ -27,10 +26,17 @@ def TodoCreate(request):
 
 
 @api_view(['POST'])
-
 def TodoUpdate(request,pk):
     todo = Todo.objects.get(id=pk)
     serializer = TodoSerializer(instance=todo, data=request.data)
     if serializer.is_valid():
         serializer.save()
     return Response(serializer.data)
+
+
+@api_view(['DELETE'])
+
+def TodoDelete(request,pk):
+    todo = Todo.objects.get(id=pk)
+    todo.delete()
+    return Response("Item succesfully deleted")
