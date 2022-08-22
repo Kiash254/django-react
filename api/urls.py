@@ -5,4 +5,5 @@ app_name='api'
 
 urlpatterns = [
     path('',views.home, name='home'),
+    path('todoview',views.Todoview, name='todoview'),
 ]
